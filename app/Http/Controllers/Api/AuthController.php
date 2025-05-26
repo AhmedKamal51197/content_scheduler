@@ -26,7 +26,7 @@ class AuthController extends Controller
             ]);
             $tokenResult = $user->createToken('auth_token');
             $token       = $tokenResult->accessToken;
-            $token->expires_at = Carbon::now()->addMinute(30);
+            $token->expires_at = Carbon::now()->addMinute(60);
             $token->save();
             return $this->success(data:[
                 'user' => $user,
@@ -44,7 +44,7 @@ class AuthController extends Controller
                 $user = auth()->user();
                 $tokenResult = $user->createToken('auth_token');
                 $token       = $tokenResult->accessToken;
-                $token->expires_at = Carbon::now()->addMinute(30);
+                $token->expires_at = Carbon::now()->addMinute(60);
                 $token->save();
                 return $this->success(data:[
                     'user' => $user,
